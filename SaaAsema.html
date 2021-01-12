@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <title>Mun Blogi</title>
+    <meta name="descriptition" content="awesome blog by mää">
+    <meta name="keywords" content="web suunnitteua, web dev ext">
+    <style type="text/css">
+    
+      #main-header{ 
+        text-align:center;
+        backraound-colour:black;
+        colour:white;
+        padding:10px;
+
+      }
+
+      #main-footer{
+        text-align:canter;
+        font-size:18px;
+
+      }
+
+    </style>
+    <link rel="stylesheet" type="text/css" href="style2.css">
+  </head>
+  <body>
+    <header id="main-header">
+      <h1>Tommin sääasema</h1>
+    </header>
+
+    <a href="index.html">palaa kotisuvulle</a>
+
+    <br>
+    <br>
+    
+      <center>
+        <div class="dataTaulukkona">
+          Odota hetki, tietoja ladataan....
+      <TABLE BORDER=16 summary="Kaksitoista riviä ja viisi saraketta"> 
+        
+          <CAPTION VALIGN=TOP  ALIGN=CENTER>Tommin sääasema </CAPTION>
+          <TR colspan="30"><TH> Ilmankosteus % </TH><TH> Valoisuus  </TH><TH> Kastepiste </TH><TH> Tuntuu kuin </TH><TH> Lämpötila </TH></TR>
+          <TR><TD> Arvo % </TD><TD> LUX </TD><TD>Arvo °C  </TD><TD> Arvo °C </TD><TD>  Arvo °C</TD></TR>
+          
+      </TABLE>
+        </div>
+
+      </center>
+      <script src="weather.js"></script>
+      
+      <br>
+      
+  <div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Päivämäärä', 'Lämpötila °', 'Tuntuu kuin'],
+          ['1.12',  10,      9],
+          ['2.12',  11,      8],
+          ['3.12',  6,       5],
+          ['4.12',  10,      8]
+        ]);
+
+        var options = {
+          title: 'Sää nyt',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </div>
+  <body>
+    <div id="curve_chart" style="width: 900px; height: 500px"></div>
+  </body>
+<div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Lämpötila °', 'Kosteus %'],
+          [ 8,      35],
+          [ 4,      50],
+          [ 11,     64],
+          [ 4,      52],
+          [ 3,      35],
+          [ 6.5,    70]
+        ]);
+
+        var options = {
+          title: 'Kastepiste',
+          hAxis: {title: 'Lämpötila °', minValue: 0, maxValue: 40},
+          vAxis: {title: 'Kosteus %', minValue: 0, maxValue: 100},
+          legend: 'none'
+        };
+
+        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </div>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+  </body>
+  </body>
+  </body>    
+  
+</html>  
